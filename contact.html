@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Contact Us - Glomor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-container {
+            max-width: 1320px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6e314d;
+            margin-bottom: 20px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            color: #6e314d;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: #6e314d;
+        }
+
+        .contact-form {
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #6e314d;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #6e314d;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #6e314d;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #4a1f35;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="font-family:Great Vibes">Glomor</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="all.html">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="cleansers.html">Cleansers</a>
+                        <a href="moisturizers.html">Moisturizers</a>
+                        <a href="handmade.html">Handmade</a>
+                        <a href="all.html">Shop all</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="login_images">
+                <a href="cart.html" class="nav-icon">🛒</a>
+                <a href="login.html" class="nav-icon">👤</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p><strong>Address:</strong> Kathmandu, Thapathali, Besides Maitighar</p>
+                <p><strong>Phone:</strong> +977 1234567890</p>
+                <p><strong>Email:</strong> info@glomor.com</p>
+                <p><strong>Hours:</strong> Sun-Sat: 11 AM - 6 PM</p>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="all.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="newsletter-social-container">
+                    <div class="newsletter-subscription">
+                        <h3>Subscribe to our emails</h3>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Our Store</h3>
+                <p>Kathmandu, Thapathali</p>
+                <p>Besides Maitighar</p>
+                <p><strong>Sun-Sat</strong>: 11 AM - 6 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Glomor</h3>
+                <p>We create high quality skincare with the most potent plant extracts and the best scientific actives. Our products are safe for you and for the planet.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 Glomor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            let isValid = true;
+            let errorMessage = '';
+            
+            // Name validation
+            if (name.length < 2) {
+                isValid = false;
+                errorMessage += 'Name must be at least 2 characters long.\n';
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                isValid = false;
+                errorMessage += 'Please enter a valid email address.\n';
+            }
+            
+            // Subject validation
+            if (subject.length < 3) {
+                isValid = false;
+                errorMessage += 'Subject must be at least 3 characters long.\n';
+            }
+            
+            // Message validation
+            if (message.length < 10) {
+                isValid = false;
+                errorMessage += 'Message must be at least 10 characters long.\n';
+            }
+            
+            if (isValid) {
+                // If all validations pass, you can submit the form
+                alert('Form submitted successfully!');
+                this.submit();
+            } else {
+                alert('Please fix the following errors:\n' + errorMessage);
+            }
+        });
+    </script>
+</body>
+</html> 
