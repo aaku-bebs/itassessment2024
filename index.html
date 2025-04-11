@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Glomor - Organic Skincare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login_images img {
+            width: 2em;
+            margin: 0px 4px;
+        }
+        header {
+            background-color: rgb(225, 134, 149);
+        }
+        body {
+            background-color: #f7c6cc;
+        }
+        .hero {
+            color: #6e314d;
+        }
+
+        .featured-products {
+            padding: 4rem 5%;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .featured-products h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #6e314d;
+            margin-bottom: 2.5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #6e314d;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .product-card p {
+            color: #6e314d;
+            opacity: 0.8;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .price {
+            font-weight: 600;
+            color: #6e314d;
+            font-size: 1.1rem;
+            margin: 0.5rem 0 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        .product-card .add-to-cart {
+            background-color: #6e314d;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: auto;
+            min-width: 150px;
+        }
+
+        .product-card .add-to-cart:hover {
+            background-color: #4a1f35;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .product-card img {
+                height: 250px;
+            }
+
+            .product-card h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="font-family:Great Vibes">Glomor</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="all.html">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="cleansers.html">Cleansers</a>
+                        <a href="moisturizers.html">Moisturizers</a>
+                        <a href="handmade.html">Handmade</a>
+                        <a href="all.html">Shop all</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="login_images">
+                <a href="cart.html" class="nav-icon">🛒</a>
+                <a href="login.html" class="nav-icon">👤</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 style="font-family: 'Playfair Display', serif">Organic skincare with a twist</h1>
+            <p>Gentle, effective & clean high-performance skincare</p>
+            <a href="#shop" class="cta-button" style="background: none; border: 2px solid #6e314d;">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <h2>Shop our most trusted formulas</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://www.peachytonics.com/cdn/shop/files/OTHER.jpg?v=1715772315&width=360" alt="Dew Drops">
+                <h3>Dew Drops</h3>
+                <p>Hydrating serum</p>
+                <span class="price">Rs4,500.00 NPR</span>
+                <button class="add-to-cart" onclick="alert('Dew Drops added to cart!')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://kbpecomenrce.ktm.yetiappcloud.com/wp-content/uploads/2024/09/Untitled-design-2024-09-23T180502.126.png" alt="Cleanse">
+                <h3>Cleanse</h3>
+                <p>Gentle cleanser</p>
+                <span class="price">Rs1,600.00 NPR</span>
+                <button class="add-to-cart" onclick="alert('Cleanse added to cart!')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://kbpecomenrce.ktm.yetiappcloud.com/wp-content/uploads/2025/03/Skin1004_Madagascar-Centella-Poremizing-Light-Gel-Cream-75ml-768x768.webp" alt="Barrier Butter">
+                <h3>Barrier Butter</h3>
+                <p>Moisturizing cream</p>
+                <span class="price">Rs3,000.00 NPR</span>
+                <button class="add-to-cart" onclick="alert('Barrier Butter added to cart!')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.DhRUstiHTupn6prcbdsWSAHaHa?rs=1&pid=ImgDetMain" alt="Youth Cream">
+                <h3>Youth Cream</h3>
+                <p>Anti-aging formula</p>
+                <span class="price">Rs3,900.00 NPR</span>
+                <button class="add-to-cart" onclick="alert('Youth Cream added to cart!')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-feed">
+        <h2>Follow us on Instagram</h2>
+        <div class="instagram-grid">
+            <div class="instagram-post">
+                <img src="https://i.pinimg.com/736x/f9/bf/d5/f9bfd5c9e0d1db21f1162efb6b4e47c3.jpg" alt="Instagram post">
+            </div>
+            <div class="instagram-post">
+                <img src="https://i.pinimg.com/736x/64/c6/ce/64c6ceec460047cf5961122ecd038754.jpg" alt="Instagram post">
+            </div>
+            <div class="instagram-post">
+                <img src="https://i.pinimg.com/736x/b2/fd/41/b2fd419df5cf95cba95785d01550effd.jpg" alt="Instagram post">
+            </div>
+            <div class="instagram-post">
+                <img src="https://i.pinimg.com/736x/59/5f/c6/595fc679f2d42adc49faa6b0b637bf89.jpg" alt="Instagram post">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="all.html">Shop</a></li>
+                </ul>
+                <div class="newsletter-social-container">
+                    <div class="newsletter-subscription">
+                        <h3>Subscribe to our emails</h3>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Our Store</h3>
+                <p>Kathmandu, Thapathali</p>
+                <p>Besides Maitighar</p>
+                <p><strong>Sun-Sat</strong>: 11 AM - 6 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Glomor</h3>
+                <p>We create high quality skincare with the most potent plant extracts and the best scientific actives. Our products are safe for you and for the planet.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 Glomor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
