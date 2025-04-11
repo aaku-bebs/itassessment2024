@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Shopping Cart - Glomor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-container {
+            max-width: 1320px;
+            margin: 120px auto 50px;
+            padding: 0 20px;
+        }
+
+        .cart-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cart-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6e314d;
+            margin-bottom: 10px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cart-empty p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .cart-items {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 2fr 1fr 1fr auto;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            gap: 20px;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .item-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-controls button {
+            background: none;
+            border: 1px solid #6e314d;
+            color: #6e314d;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-controls button:hover {
+            background: #6e314d;
+            color: white;
+        }
+
+        .quantity-controls span {
+            font-size: 1.1rem;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #6e314d;
+            font-size: 1.1rem;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #6e314d;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .remove-item:hover {
+            color: #4a1f35;
+        }
+
+        .cart-summary {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .summary-row.total {
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #6e314d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #4a1f35;
+            transform: translateY(-2px);
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            margin-top: 20px;
+            color: #6e314d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .continue-shopping:hover {
+            color: #4a1f35;
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                grid-template-areas: 
+                    "image details"
+                    "image price"
+                    "quantity quantity"
+                    "remove remove";
+                gap: 10px;
+            }
+
+            .cart-item img {
+                grid-area: image;
+                height: 80px;
+            }
+
+            .item-details {
+                grid-area: details;
+            }
+
+            .item-price {
+                grid-area: price;
+            }
+
+            .quantity-controls {
+                grid-area: quantity;
+                justify-content: center;
+                margin: 10px 0;
+            }
+
+            .remove-item {
+                grid-area: remove;
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                background: #f8f8f8;
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="font-family:Great Vibes">Glomor</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="all.html">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="cleansers.html">Cleansers</a>
+                        <a href="moisturizers.html">Moisturizers</a>
+                        <a href="handmade.html">Handmade</a>
+                        <a href="all.html">Shop all</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="login_images">
+                <a href="cart.html" class="nav-icon">🛒</a>
+                <a href="login.html" class="nav-icon">👤</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <div class="cart-header">
+            <h1>Your Cart</h1>
+        </div>
+
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="https://www.peachytonics.com/cdn/shop/files/OTHER.jpg?v=1715772315&width=360" alt="Dew Drops">
+                <div class="item-details">
+                    <h3>Dew Drops</h3>
+                    <p>Hydrating serum</p>
+                </div>
+                <div class="quantity-controls">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <div class="item-price">Rs4,500.00 NPR</div>
+                <button class="remove-item">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="cart-item">
+                <img src="https://kbpecomenrce.ktm.yetiappcloud.com/wp-content/uploads/2024/09/Untitled-design-2024-09-23T180502.126.png" alt="Cleanse">
+                <div class="item-details">
+                    <h3>Cleanse</h3>
+                    <p>Gentle cleanser</p>
+                </div>
+                <div class="quantity-controls">
+                    <button>-</button>
+                    <span>2</span>
+                    <button>+</button>
+                </div>
+                <div class="item-price">Rs3,200.00 NPR</div>
+                <button class="remove-item">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>Rs7,700.00 NPR</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>Rs150.00 NPR</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span>Rs7,850.00 NPR</span>
+            </div>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="all.html" class="continue-shopping">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="all.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="newsletter-social-container">
+                    <div class="newsletter-subscription">
+                        <h3>Subscribe to our emails</h3>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Our Store</h3>
+                <p>Kathmandu, Thapathali</p>
+                <p>Besides Maitighar</p>
+                <p><strong>Sun-Sat</strong>: 11 AM - 6 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Glomor</h3>
+                <p>We create high quality skincare with the most potent plant extracts and the best scientific actives. Our products are safe for you and for the planet.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 Glomor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add event listeners for quantity controls
+        document.querySelectorAll('.quantity-controls button').forEach(button => {
+            button.addEventListener('click', function() {
+                const quantitySpan = this.parentElement.querySelector('span');
+                let quantity = parseInt(quantitySpan.textContent);
+                
+                if (this.textContent === '+') {
+                    quantity++;
+                } else if (this.textContent === '-' && quantity > 1) {
+                    quantity--;
+                }
+                
+                quantitySpan.textContent = quantity;
+                updateCartTotal();
+            });
+        });
+
+        // Add event listeners for remove buttons
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.cart-item').remove();
+                updateCartTotal();
+                
+                // Check if cart is empty
+                if (document.querySelectorAll('.cart-item').length === 0) {
+                    showEmptyCart();
+                }
+            });
+        });
+
+        function showEmptyCart() {
+            const cartItems = document.querySelector('.cart-items');
+            const cartSummary = document.querySelector('.cart-summary');
+            
+            cartItems.innerHTML = `
+                <div class="cart-empty">
+                    <p>Your cart is empty</p>
+                    <a href="all.html" class="checkout-button">Start Shopping</a>
+                </div>
+            `;
+            
+            cartSummary.style.display = 'none';
+        }
+
+        function updateCartTotal() {
+            // This is a simplified version. In a real application, you would calculate actual totals
+            const items = document.querySelectorAll('.cart-item');
+            let subtotal = 0;
+            
+            items.forEach(item => {
+                const price = parseFloat(item.querySelector('.item-price').textContent.replace(/[^0-9.]/g, ''));
+                const quantity = parseInt(item.querySelector('.quantity-controls span').textContent);
+                subtotal += price * quantity;
+            });
+            
+            const shipping = 150;
+            const total = subtotal + shipping;
+            
+            document.querySelector('.summary-row:first-child span:last-child').textContent = `Rs${subtotal.toFixed(2)} NPR`;
+            document.querySelector('.summary-row.total span:last-child').textContent = `Rs${total.toFixed(2)} NPR`;
+        }
+    </script>
+</body>
+</html> 
