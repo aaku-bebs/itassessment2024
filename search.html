@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Search - Glomor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login_images img {
+            width: 2em;
+            margin: 0px 4px;
+        }
+        .search-container {
+            max-width: 1320px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+
+        .search-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .search-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6e314d;
+            margin-bottom: 20px;
+        }
+
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #6e314d;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #6e314d;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6e314d;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .search-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 50px 0;
+            font-family: 'Poppins', sans-serif;
+            color: #6e314d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="font-family:Great Vibes">Glomor</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="shop.html">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="cleansers.html">Cleansers</a>
+                        <a href="moisturizers.html">Moisturizers</a>
+                        <a href="handmade.html">Handmade</a>
+                        <a href="all.html">Shop all</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="login_images">
+                <a href="cart.html" class="nav-icon">🛒</a>
+                <a href="login.html" class="nav-icon">👤</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <div class="search-header">
+            <h1>Search</h1>
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Search for products...">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <div class="search-results">
+            <!-- Search results will be dynamically populated here -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="newsletter-social-container">
+                    <div class="newsletter-subscription">
+                        <h3>Subscribe to our emails</h3>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Our Store</h3>
+                <p>Kathmandu, Thapathali</p>
+                <p>Besides Maitighar</p>
+                <p><strong>Sun-Sat</strong>: 11 AM - 6 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Glomor</h3>
+                <p>We create high quality skincare with the most potent plant extracts and the best scientific actives. Our products are safe for you and for the planet.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 Glomor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 

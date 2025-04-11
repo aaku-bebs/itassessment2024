@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Shop - Glomor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login_images img {
+            width: 2em;
+            margin: 0px 4px;
+        }
+        .shop-container {
+            max-width: 1320px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+
+        .shop-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .shop-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #6e314d;
+            margin-bottom: 20px;
+        }
+
+        .shop-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .filter-button {
+            padding: 8px 15px;
+            border: 1px solid #6e314d;
+            background: none;
+            color: #6e314d;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background-color: #6e314d;
+            color: white;
+        }
+
+        .sort-select {
+            padding: 8px 15px;
+            border: 1px solid #6e314d;
+            border-radius: 5px;
+            background: none;
+            color: #6e314d;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #6e314d;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: #6e314d;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: #6e314d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #4a1f35;
+        }
+
+        @media (max-width: 768px) {
+            .shop-filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="font-family:Great Vibes">Glomor</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="all.html">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="favorites.html">Customer Favorites</a>
+                        <a href="cleansers.html">Cleansers</a>
+                        <a href="moisturizers.html">Moisturizers</a>
+                        <a href="handmade.html">Handmade</a>
+                        <a href="all.html">Shop all</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="login_images">
+                <a href="cart.html" class="nav-icon">🛒</a>
+                <a href="login.html" class="nav-icon">👤</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="shop-container">
+        <div class="shop-header">
+            <h1>Shop All Products</h1>
+        </div>
+
+        <div class="shop-filters">
+            <div class="filter-group">
+                <button class="filter-button active">All</button>
+                <button class="filter-button">Cleansers</button>
+                <button class="filter-button">Moisturizers</button>
+                <button class="filter-button">Serums</button>
+                <button class="filter-button">Handmade</button>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card" data-category="serums">
+                <img src="https://www.peachytonics.com/cdn/shop/files/OTHER.jpg?v=1715772315&width=360" alt="Dew Drops" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Dew Drops</h3>
+                    <p class="product-price">Rs4,500.00 NPR</p>
+                    <button class="add-to-cart" onclick="alert('Dew Drops added to cart!')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="cleansers">
+                <img src="https://kbpecomenrce.ktm.yetiappcloud.com/wp-content/uploads/2024/09/Untitled-design-2024-09-23T180502.126.png" alt="Cleanse" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Cleanse</h3>
+                    <p class="product-price">Rs1,600.00 NPR</p>
+                    <button class="add-to-cart" onclick="alert('Cleanse added to cart!')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="moisturizers">
+                <img src="https://kbpecomenrce.ktm.yetiappcloud.com/wp-content/uploads/2025/03/Skin1004_Madagascar-Centella-Poremizing-Light-Gel-Cream-75ml-768x768.webp" alt="Barrier Butter" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Barrier Butter</h3>
+                    <p class="product-price">Rs3,000.00 NPR</p>
+                    <button class="add-to-cart" onclick="alert('Barrier Butter added to cart!')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card" data-category="moisturizers">
+                <img src="https://kbpecomenrce.ktm.yetiappcloud.com/wp-content/uploads/2025/03/medicube-age-r-pdrn-booster-gelpdrn300mlmedicubebeauty-decoder-741938-768x768.webp" alt="Youth Cream" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Youth Cream</h3>
+                    <p class="product-price">Rs3,900.00 NPR</p>
+                    <button class="add-to-cart" onclick="alert('Youth Cream added to cart!')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="all.html">Shop</a></li>
+                </ul>
+                <div class="newsletter-social-container">
+                    <div class="newsletter-subscription">
+                        <h3>Subscribe to our emails</h3>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Our Store</h3>
+                <p>Kathmandu, Thapathali</p>
+                <p>Besides Maitighar</p>
+                <p><strong>Sun-Sat</strong>: 11 AM - 6 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Glomor</h3>
+                <p>We create high quality skincare with the most potent plant extracts and the best scientific actives. Our products are safe for you and for the planet.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2025 Glomor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-group .filter-button');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.textContent.toLowerCase();
+                    if (category !== 'all') {
+                        window.location.href = category + '.html';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
